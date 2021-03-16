@@ -315,9 +315,11 @@ namespace golos { namespace plugins { namespace private_message {
             }
 
             try {
+                elog("Callback set");
                 info.msg->unsafe_result(r);
                 ++itr;
             } catch (...) {
+                elog("Callback erased");
                 callbacks_.erase(itr++);
             }
         }
